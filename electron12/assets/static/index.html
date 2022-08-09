@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>CU WebEM</title>
+        <base href="/"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="styles.9300047dbaefabae.css"></head>
+    <body>
+        <div style="position: fixed;width: 100%;height: 100%;display: flex;" id="cloud-webem-loading-splash">
+            <i class="mdi mdi-48px mdi-spin mdi-loading" style="align-self: center;position: absolute;left: 50%;"></i>
+        </div>
+        <script>
+            function onContentLoad()  {
+                const webemRoot = document.getElementById('webem-root');
+                const isBrowserSupported = checkBrowser();
+
+                if (isBrowserSupported) {
+                    displayApplication();
+                } else {
+                    displayNotSupportedBrowserInfo();
+                }
+
+                function checkBrowser() {
+                    const isEdge = checkUserAgent("Edge");
+                    const isChrome = checkUserAgent("Chrome");
+                    const isFirefox = checkUserAgent("Firefox");
+
+                    return !isEdge && (isChrome || isFirefox);
+                }
+
+                function checkUserAgent(browser) {
+                    return navigator.userAgent.indexOf(browser) !== -1;
+                }
+
+                function displayApplication() {
+                    webemRoot.setAttribute('style', 'display: initial');
+                }
+
+                function displayNotSupportedBrowserInfo() {
+                    const notSupportedBrowserContainer = document.getElementById('not-supported-browser');
+                    notSupportedBrowserContainer.setAttribute('style', 'display: block; height: 100%');
+                    window.document.body.querySelector('#cloud-webem-loading-splash')?.remove();
+                }
+            }
+
+            function readyStateChange() {
+                if (document.readyState === "complete") {
+                    onContentLoad();
+                }
+            }
+
+            if (window.addEventListener) {
+                window.addEventListener('DOMContentLoaded', onContentLoad, false);
+            } else {
+                document.attachEvent('onreadystatechange', readyStateChange);
+            }
+
+            window.addEventListener("dragenter", function(e) {
+                    e.preventDefault();
+                    e.dataTransfer.effectAllowed = "none";
+                    e.dataTransfer.dropEffect = "none";
+            });
+
+            window.addEventListener("dragover", function(e) {
+                    e.preventDefault();
+                    e.dataTransfer.effectAllowed = "none";
+                    e.dataTransfer.dropEffect = "none";
+            });
+
+            window.addEventListener("drop", function(e) {
+                    e.preventDefault();
+                    e.dataTransfer.effectAllowed = "none";
+                    e.dataTransfer.dropEffect = "none";
+            });
+        </script>
+        <div id="not-supported-browser" style="display: none;">
+            <div class="not-supported-modal-container">
+                <div class="not-supported-modal">
+                    <div class="not-supported-modal-header">
+                        <em class="mdi mdi-alert red-alert"></em>
+                        Unsupported browser
+                    </div>
+                    <div class="not-supported-modal-content">
+                        This web browser is currently not supported.<br/> Please use Google Chrome or Mozilla Firefox.
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: center;">
+                © 2022 Nokia. All rights reserved.
+            </div>
+        </div>
+
+        <webem-root id="webem-root" style="display: none;"></webem-root>
+
+        <script nomodule="" type="text/javascript">
+            var notSupportedBrowserContainer = document.getElementById('not-supported-browser');
+            notSupportedBrowserContainer.style.display = 'block';
+            notSupportedBrowserContainer.style.height = '100%';
+        </script>
+    <script src="runtime.980a835c72ca2da1.js" type="module"></script><script src="polyfills.0b14619b51eadfb2.js" type="module"></script><script src="scripts.db56066cd8646968.js" defer></script><script src="vendor.59c1211173719838.js" type="module"></script><script src="main.f7600dbb7eb3700c.js" type="module"></script></body>
+</html>

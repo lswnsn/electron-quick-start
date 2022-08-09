@@ -1,0 +1,21 @@
+{
+  "name": "vcu-offline",
+  "version": "0.1.0",
+  "main": "index.js",
+  "dependencies": {
+    "@nestjs/common": "7.4.2",
+    "@nestjs/serve-static": "^2.1.4",
+    "@nestjs/core": "7.4.2",
+    "find-free-ports": "^3.0.0",
+    "@angular/common": "13.3.11",
+    "@angular/core": "13.3.11",
+    "rxjs": "^6.6.7"
+  },
+  "author": {
+    "name": "NOKIA",
+    "email": "none@nokia.com"
+  },
+  "description": "",
+  "license": "MIT",
+  "private": true
+}
