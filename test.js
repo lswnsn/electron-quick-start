@@ -2,7 +2,7 @@ const { _electron: electron } = require('playwright');
 
 (async () => {
     // Launch Electron app.
-    const electronApp = await electron.launch({ args: ['electron14/main.js'] });
+    const electronApp = await electron.launch({ args: ['electron14-2/main.js'] });
 
     // Evaluation expression in the Electron context.
     const appPath = await electronApp.evaluate(async ({ app }) => {
